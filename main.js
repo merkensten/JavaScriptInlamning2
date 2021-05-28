@@ -19,17 +19,11 @@ function createResultElement(title, description) {
 function findResult(query) {
   // En simpel for stats som jag skapat som kollar om ett objekts titel innehåller det som är inskrivet i input fältet. (Dock är jag osäker om denna funkar som den ska, det vet jag först när jag skapat så att det displayas ut i html filen)
   let searchArray = [];
-//   for (let i = 0; i < RESULTS.length; i++) {
-//     if (
-//       RESULTS[i].title.toLowerCase().includes(query.toLowerCase()) ||
-//       RESULTS[i].description.toLowerCase().includes(query.toLowerCase())
-//     ) {
-//       searchArray.push(RESULTS[i].title);
-//     }
-//   }
-
   for (let i = 0; i < RESULTS.length; i++) {
-    if (RESULTS[i].description.toLowerCase().includes(query.toLowerCase())) {
+    if (
+      RESULTS[i].title.toLowerCase().includes(query.toLowerCase()) ||
+      RESULTS[i].description.toLowerCase().includes(query.toLowerCase())
+    ) {
       searchArray.push(RESULTS[i].title);
     }
   }
