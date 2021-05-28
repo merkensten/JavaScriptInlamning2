@@ -1,6 +1,6 @@
 // some data for our search box.
 
-const RESULTS = [{
+export const RESULTS = [{
     "id": 1,
     "title": "Cannibal! The Musical (a.k.a. Alferd Packer: The Musical)",
     "description": "Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat.\n\nIn congue. Etiam justo. Etiam pretium iaculis justo.",
