@@ -5,9 +5,35 @@ const inputField = document.getElementById('search');
 // Ul element
 const resultsArea = document.getElementById('search-results');
 
+/*
+
+Finish this function, it should return a HTML element that looks like this:
+
+<li>
+    <article class="search-result">
+        <header class="search-result-header search-result-section">
+            Cool movie (title)
+        </header>
+        <div class="search-result-body search-result-section">
+            This is some information about this result. (description)
+        </div>
+    </article>
+</li>
+*/
+
 // Function for creating the elements who till be displayed
 function createResultElement(title, description) {
-  console.log('This function is not implemented.');
+  const resultsAreaListElement = document.createElement('li');
+  resultsAreaListElement.innerHTML = `
+  <article class="search-result">
+      <header class="search-result-header search-result-section">
+          ${title}
+      </header>
+      <div class="search-result-body search-result-section">
+          ${description}
+      </div>
+  </article>`;
+  return resultsArea.appendChild(resultsAreaListElement);
 }
 
 // Finish this function
@@ -17,17 +43,19 @@ function createResultElement(title, description) {
 //
 // This should return an array with all matching results.
 function findResult(query) {
-  // En simpel for stats som jag skapat som kollar om ett objekts titel innehåller det som är inskrivet i input fältet. (Dock är jag osäker om denna funkar som den ska, det vet jag först när jag skapat så att det displayas ut i html filen)
   let searchArray = [];
   for (let i = 0; i < RESULTS.length; i++) {
     if (
       RESULTS[i].title.toLowerCase().includes(query.toLowerCase()) ||
       RESULTS[i].description.toLowerCase().includes(query.toLowerCase())
     ) {
-      searchArray.push(RESULTS[i].title);
+      searchArray.push({
+        title: RESULTS[i].title,
+        description: RESULTS[i].description,
+      });
     }
   }
-  console.log(searchArray);
+  return searchArray;
 }
 
 inputField.addEventListener('keyup', function (event) {
